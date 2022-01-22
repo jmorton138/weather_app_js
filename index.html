@@ -7,10 +7,19 @@
     <title>Weather App</title>
     <script src="index.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/ed6bc2265d.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <input type="text" id="search-by-city">
-    <button onclick="processWeatherData()">See weather</button>
+    <header>
+        <div class="search-bar">
+            <div class="loc-icon">
+                <i class="fas fa-map-marker-alt fa-lg"></i>
+            </div>
+            <input type="text" id="search-by-city">
+            <button onclick="processWeatherData()" class="search-btn"><i class="fas fa-search fa-lg"></i></button>
+        </div>
+    </header>
     <div id="content">
 
     </div>

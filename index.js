@@ -19,7 +19,6 @@ const buildWeatherDataObj = (weatherData) => {
         conditions: weatherData.weather[0]["main"],
         temperature: weatherData.main.temp
     }
-    console.log(weather);
     return weather;
 }
 
