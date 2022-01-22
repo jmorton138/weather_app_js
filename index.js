@@ -44,7 +44,7 @@ const displayWeatherData = (weatherObj) => {
     const temperature = document.createElement('div');
     temperature.innerHTML = weatherObj.temperature;
     div.appendChild(temperature);
-    
+
     body.appendChild(div);
     
     // body.innerHTML = `${weatherObj.city} ${weatherObj.conditions} ${weatherObj.temperature}`;
@@ -60,7 +60,26 @@ const toggleTemperatureUnits = () => {
 
 }
 
-const convertTemperature = () => {
+const convertKelvToFahr = (kelv) => {
+    const fahrenheight = ((kelv - 273.15) * (9/5)) + 32;
+    console.log(fahrenheight);
+    return fahrenheight;
+}
+
+const convertKelvToCels = (kelv) => {
+    const celsius = kelv - 273.15;
+    return celsius;
+}
+
+const convertCelsToFahr = (celsius) => {
+    const fahrenheight = (celsius * 1.8) + 32;
+    return fahrenheight;
 
 }
+
+const convertFahrToCels = (fahr) => {
+    const celsius = (fahr - 32) * (5/9);
+    return celsius;
+}
+
 
