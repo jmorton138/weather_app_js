@@ -15,6 +15,7 @@ async function getWeatherData(city) {
 
 const buildWeatherDataObj = (weatherData) => {
     const weather = {
+        city: weatherData.name,
         conditions: weatherData.weather[0]["main"],
         temperature: weatherData.main.temp
     }
@@ -25,10 +26,13 @@ const buildWeatherDataObj = (weatherData) => {
 async function processWeatherData() {
     const city = await getCity();
     const weather = await getWeatherData(city);
-    buildWeatherDataObj(weather);
+    const weatherObj = await buildWeatherDataObj(weather);
+    displayWeatherData(weatherObj);
 }
 
 const displayWeatherData = (weatherObj) => {
+    const body = document.getElementById('content');
+    body.innerHTML = `${weatherObj.city} ${weatherObj.conditions} ${weatherObj.temperature}`;
 
 }
 
