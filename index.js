@@ -31,7 +31,23 @@ async function processWeatherData() {
 
 const displayWeatherData = (weatherObj) => {
     const body = document.getElementById('content');
-    body.innerHTML = `${weatherObj.city} ${weatherObj.conditions} ${weatherObj.temperature}`;
+    const div = document.createElement('div');
+    div.className = "container weather-data";
+    const city = document.createElement('h1');
+    city.innerHTML = weatherObj.city;
+    div.appendChild(city);
+
+    const conditions = document.createElement('div');
+    conditions.innerHTML = weatherObj.conditions;
+    div.appendChild(conditions);
+
+    const temperature = document.createElement('div');
+    temperature.innerHTML = weatherObj.temperature;
+    div.appendChild(temperature);
+    
+    body.appendChild(div);
+    
+    // body.innerHTML = `${weatherObj.city} ${weatherObj.conditions} ${weatherObj.temperature}`;
 
 }
 
