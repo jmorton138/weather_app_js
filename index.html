@@ -12,18 +12,25 @@
 </head>
 <body>
     <header>
+        <div class="app-name">
+            <h1>Weather App</h1>
+        </div>
         <div class="search-bar">
-            <div class="loc-icon">
+            <button class="loc-icon">
                 <i class="fas fa-map-marker-alt fa-lg"></i>
-            </div>
+            </button>
             <input type="text" id="search-by-city">
-            <button onclick="processWeatherData()" class="search-btn"><i class="fas fa-search fa-lg"></i></button>
+            <button onclick="processWeatherData()" class="search-btn">
+                <i class="fas fa-search fa-lg"></i>
+            </button>
         </div>
     </header>
     <div id="content">
 
     </div>
-
+    <footer>
+        <p class="api-ref">Powered by OpenWeather</p>
+    </footer>
 
     
 </body>
