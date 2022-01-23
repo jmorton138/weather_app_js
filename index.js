@@ -56,7 +56,27 @@ const changeBackground = (weather) => {
     html.styles.background = "grey";
 }
 
-const toggleTemperatureUnits = () => {
+
+
+const tempUnits = (() => {
+    let celsius = true;
+    return {celsius};
+})();
+
+
+
+const toggleTempUnits = () => {
+    if (tempUnits.celsius === true) {
+        tempUnits.celsius = false;
+    } else {
+        tempUnits.celsius = true;
+    }
+    console.log(tempUnits.celsius)
+
+} 
+
+
+const toggleTempUnitsDisplay = () => {
 
 }
 
