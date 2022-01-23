@@ -14,10 +14,11 @@ async function getWeatherData(city) {
 }
 
 const buildWeatherDataObj = (weatherData) => {
+    let temp = tempController(weatherData.main.temp);
     const weather = {
         city: weatherData.name,
         conditions: weatherData.weather[0]["main"],
-        temperature: weatherData.main.temp
+        temperature: temp
     }
     return weather;
 }
@@ -31,6 +32,7 @@ async function processWeatherData() {
 
 const displayWeatherData = (weatherObj) => {
     const body = document.getElementById('content');
+    body.innerHTML = "";
     const div = document.createElement('div');
     div.className = "container weather-data";
     const city = document.createElement('h1');
@@ -40,14 +42,18 @@ const displayWeatherData = (weatherObj) => {
     const conditions = document.createElement('div');
     conditions.innerHTML = weatherObj.conditions;
     div.appendChild(conditions);
-
+    var units;
+    if (tempUnits.celsius === true) {
+        units = "C";
+    } else {
+        units = "F";
+    }
     const temperature = document.createElement('div');
-    temperature.innerHTML = weatherObj.temperature;
+    temperature.innerHTML = `${weatherObj.temperature} ${units}`;
     div.appendChild(temperature);
 
     body.appendChild(div);
     
-    // body.innerHTML = `${weatherObj.city} ${weatherObj.conditions} ${weatherObj.temperature}`;
 
 }
 
@@ -60,7 +66,8 @@ const changeBackground = (weather) => {
 
 const tempUnits = (() => {
     let celsius = true;
-    return {celsius};
+    let kelvin = true;
+    return {celsius, kelvin};
 })();
 
 
@@ -71,18 +78,19 @@ const toggleTempUnits = () => {
     } else {
         tempUnits.celsius = true;
     }
-    console.log(tempUnits.celsius)
-
+    console.log(tempUnits.celsius);
 } 
 
 
 const toggleTempUnitsDisplay = () => {
-
+    toggleTempUnits();
+    processWeatherData();
 }
 
 const convertKelvToFahr = (kelv) => {
     const fahrenheight = ((kelv - 273.15) * (9/5)) + 32;
     console.log(fahrenheight);
+
     return fahrenheight;
 }
 
@@ -100,6 +108,15 @@ const convertCelsToFahr = (celsius) => {
 const convertFahrToCels = (fahr) => {
     const celsius = (fahr - 32) * (5/9);
     return celsius;
+}
+
+const tempController = (temp) => {
+    if (tempUnits.celsius === true) {
+        return convertKelvToCels(temp);
+    } else if (tempUnits.celsius === false) {
+        return convertKelvToFahr(temp);
+    } 
+    
 }
 
 
