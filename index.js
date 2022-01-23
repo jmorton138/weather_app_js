@@ -81,8 +81,32 @@ const toggleTempUnits = () => {
     console.log(tempUnits.celsius);
 } 
 
+const toggleClass = () => {
+    const element = document.querySelector('.temp-toggle');
+    if (element.classList.contains("fahr")) {
+        element.classList.remove("fahr");
+    } else {
+        element.classList.add("fahr");
+    }
+
+}
+const toggleTempUnitsStyles = () => {
+    var cels = document.querySelector('.cels-icon');
+    var fahr = document.querySelector('.fahr-icon');
+    toggleClass();
+    if (tempUnits.celsius === true) {
+        cels.style.color = "white";
+        fahr.style.color = "blueviolet";
+    } else {
+        fahr.style.color = "white";
+        cels.style.color = "blueviolet";
+    }
+
+}
+
 
 const toggleTempUnitsDisplay = () => {
+    toggleTempUnitsStyles();
     toggleTempUnits();
     processWeatherData();
 }

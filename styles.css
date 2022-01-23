@@ -1,5 +1,7 @@
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
 body, html {
@@ -9,6 +11,7 @@ body, html {
     position: relative;
 }
 header {
+    padding: 10px;
     height: 500px;
     background-color: blue;
 }
@@ -61,4 +64,71 @@ footer {
 .api-ref{
     text-align: right;
     margin: 20px;
+}
+
+
+
+
+
+
+.cels-icon, .fahr-icon {
+    padding: 10px;
+    width: 60px;
+    text-align: center;
+}
+
+.cels-icon {
+    color: blueviolet;
+    transition: color .3s ease-in-out;
+}
+
+.fahr-icon {
+    color: white;
+    transition: color .3s ease-in-out;
+
+}
+
+.switch {
+    position: absolute;
+    transform: translate(50%, 50%);
+}
+
+
+.temp-toggle {
+    position: absolute;
+    background: blueviolet;
+    width: 130px;
+    border-radius: 40px;
+    padding: 5px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s 0.1s ease-in-out;
+    -moz-transition: all 0.3s 0.1s ease-in-out;
+    -o-transition: all 0.3s 0.1s ease-in-out;
+    transition: all 0.3s 0.1s ease-in-out;
+}
+
+.temp-toggle > .inner-circle {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-transition: all 0.3s 0.1s ease-in-out;
+    -moz-transition: all 0.3s 0.1s ease-in-out;
+    -o-transition: all 0.3s 0.1s ease-in-out;
+    transition: all 0.3s 0.1s ease-in-out
+}
+
+.temp-toggle.fahr > .inner-circle {
+    margin-left: 68px
+}
+
+.temp-icons {
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
