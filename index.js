@@ -88,14 +88,14 @@ const toggleTempUnitsDisplay = () => {
 }
 
 const convertKelvToFahr = (kelv) => {
-    const fahrenheight = ((kelv - 273.15) * (9/5)) + 32;
+    const fahrenheight = Math.round(((kelv - 273.15) * (9/5)) + 32);
     console.log(fahrenheight);
 
     return fahrenheight;
 }
 
 const convertKelvToCels = (kelv) => {
-    const celsius = kelv - 273.15;
+    const celsius = Math.round(kelv - 273.15);
     return celsius;
 }
 
