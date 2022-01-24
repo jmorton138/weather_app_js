@@ -60,17 +60,28 @@ const displayWeatherData = (weatherObj) => {
 
     const tempwrapper = document.createElement('div');
     tempwrapper.className = "temp-wrapper";
+
+    const symbolwrap = document.createElement('div')
+    symbolwrap.className = "symbol-wrap";
+    
+    const temperature = document.createElement('div');
+    temperature.innerHTML = `${weatherObj.temperature}`;
+    temperature.className = "temperature-display";
+    tempwrapper.appendChild(temperature);
+    
+    const degree = document.createElement('div');
+    degree.innerHTML = "o";
+    degree.className = "degree-icon";
+    symbolwrap.appendChild(degree);
+
     const unitdisplay = document.createElement('div');
     unitdisplay.className = "unit-display";
     unitdisplay.innerHTML = `${units}`;
-    tempwrapper.appendChild(unitdisplay);
+    symbolwrap.appendChild(unitdisplay);
+    tempwrapper.appendChild(symbolwrap);
+  
 
-    const temperature = document.createElement('h2');
-    temperature.innerHTML = `${weatherObj.temperature}°`;
-    temperature.className = "temperature-display";
-    tempwrapper.appendChild(temperature);
-
-
+ 
 
     const feel = document.createElement('h3');
     feel.innerHTML = `Feels like ${weatherObj.feelsLike}°`;
