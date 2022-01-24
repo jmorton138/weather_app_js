@@ -17,7 +17,7 @@ const buildWeatherDataObj = (weatherData) => {
     let temp = tempController(weatherData.main.temp);
     const weather = {
         city: weatherData.name,
-        conditions: weatherData.weather[0]["main"],
+        conditions: weatherData.weather[0]["description"],
         temperature: temp
     }
     return weather;
@@ -26,6 +26,7 @@ const buildWeatherDataObj = (weatherData) => {
 async function processWeatherData() {
     const city = await getCity();
     const weather = await getWeatherData(city);
+    console.log(weather)
     const weatherObj = await buildWeatherDataObj(weather);
     displayWeatherData(weatherObj);
 }

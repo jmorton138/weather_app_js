@@ -56,6 +56,18 @@ header {
     background-color: blueviolet;
 
 }
+
+.container {
+    background: white;
+    padding: 30px;
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 50%;
+    box-shadow: -5px 5px 10px grey;
+}
+.weather-data h1 {
+    margin-top: 0;
+}
 footer {
     position: absolute;
     width: 100%;
