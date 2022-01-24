@@ -14,6 +14,7 @@ body, html {
 header {
     padding: 10px;
     height: 350px;
+    width: 100%;
     background-color: #1f1f1f;
 }
 .app-name {
@@ -42,7 +43,9 @@ header {
     align-content: center;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    width: 70px;
     background-color: blueviolet;
+    border: blueviolet;
 }
 
 .search-bar input {
@@ -51,9 +54,12 @@ header {
     padding: 20px;
 }
 .search-btn {
+    width: 70px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     background-color: blueviolet;
+    border: blueviolet;
+
 
 }
 
