@@ -15,10 +15,13 @@ async function getWeatherData(city) {
 
 const buildWeatherDataObj = (weatherData) => {
     let temp = tempController(weatherData.main.temp);
+    let feels = tempController(weatherData.main.feels_like);
     const weather = {
         city: weatherData.name,
         conditions: weatherData.weather[0]["description"],
-        temperature: temp
+        temperature: temp,
+        feelsLike: feels,
+        id: weatherData.weather[0]["id"]
     }
     return weather;
 }
@@ -53,6 +56,13 @@ const displayWeatherData = (weatherObj) => {
     temperature.innerHTML = `${weatherObj.temperature} ${units}`;
     div.appendChild(temperature);
 
+    const feel = document.createElement('div');
+    feel.innerHTML = `Feels like ${weatherObj.feelsLike} ${units}`;
+    div.appendChild(feel);
+    
+    const image = document.createElement('i');
+    image.className = `wi wi-owm-${weatherObj.id} weather-icon`;
+    div.appendChild(image);
     body.appendChild(div);
     
 
