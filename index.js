@@ -16,9 +16,10 @@ async function getWeatherData(city) {
 const buildWeatherDataObj = (weatherData) => {
     let temp = tempController(weatherData.main.temp);
     let feels = tempController(weatherData.main.feels_like);
+    let conditions = capitalize(weatherData.weather[0]["description"])
     const weather = {
         city: weatherData.name,
-        conditions: weatherData.weather[0]["description"],
+        conditions: conditions,
         temperature: temp,
         feelsLike: feels,
         id: weatherData.weather[0]["id"]
@@ -58,14 +59,26 @@ const displayWeatherData = (weatherObj) => {
     }
 
     const tempwrapper = document.createElement('div');
-    const temperature = document.createElement('div');
-    temperature.innerHTML = `${weatherObj.temperature} ${units}`;
+    tempwrapper.className = "temp-wrapper";
+    const unitdisplay = document.createElement('div');
+    unitdisplay.className = "unit-display";
+    unitdisplay.innerHTML = `${units}`;
+    tempwrapper.appendChild(unitdisplay);
+
+    const temperature = document.createElement('h2');
+    temperature.innerHTML = `${weatherObj.temperature}°`;
+    temperature.className = "temperature-display";
     tempwrapper.appendChild(temperature);
 
-    const feel = document.createElement('div');
-    feel.innerHTML = `Feels like ${weatherObj.feelsLike} ${units}`;
+
+
+    const feel = document.createElement('h3');
+    feel.innerHTML = `Feels like ${weatherObj.feelsLike}°`;
+    feel.className ="realfeel";
+
     tempwrapper.appendChild(feel);
     wrapper.appendChild(tempwrapper);
+
     div.appendChild(wrapper);
 
     const conditions = document.createElement('div');
@@ -163,4 +176,11 @@ const tempController = (temp) => {
     
 }
 
-
+const capitalize = (string) => {
+    let words = string.split(" ");
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substring(1);
+    }
+    words = words.join(" ")
+    return words;
+} 

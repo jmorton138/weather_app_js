@@ -74,6 +74,26 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.temp-wrapper {
+    position: relative;
+}
+
+.temperature-display {
+    font-size: 100px;
+    margin: 0;
+    font-weight: 500;
+}
+.unit-display {
+    position: absolute;
+    font-size: 40px;
+    top: 62px;
+    left: 60px;
+    color: #4a4c4d;
+}
+.realfeel {
+    margin: 0;
+    font-weight: 100; 
+}
 .weather-icon {
     font-size: 150px;
 }
