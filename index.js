@@ -43,26 +43,35 @@ const displayWeatherData = (weatherObj) => {
     city.innerHTML = weatherObj.city;
     div.appendChild(city);
 
-    const conditions = document.createElement('div');
-    conditions.innerHTML = weatherObj.conditions;
-    div.appendChild(conditions);
+    const wrapper = document.createElement('div');
+    wrapper.className = "wrapper";
+
+    const image = document.createElement('i');
+    image.className = `wi wi-owm-${weatherObj.id} weather-icon`;
+    wrapper.appendChild(image);
+
     var units;
     if (tempUnits.celsius === true) {
         units = "C";
     } else {
         units = "F";
     }
+
+    const tempwrapper = document.createElement('div');
     const temperature = document.createElement('div');
     temperature.innerHTML = `${weatherObj.temperature} ${units}`;
-    div.appendChild(temperature);
+    tempwrapper.appendChild(temperature);
 
     const feel = document.createElement('div');
     feel.innerHTML = `Feels like ${weatherObj.feelsLike} ${units}`;
-    div.appendChild(feel);
-    
-    const image = document.createElement('i');
-    image.className = `wi wi-owm-${weatherObj.id} weather-icon`;
-    div.appendChild(image);
+    tempwrapper.appendChild(feel);
+    wrapper.appendChild(tempwrapper);
+    div.appendChild(wrapper);
+
+    const conditions = document.createElement('div');
+    conditions.innerHTML = weatherObj.conditions;
+    div.appendChild(conditions);
+
     body.appendChild(div);
     
 

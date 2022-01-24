@@ -1,5 +1,5 @@
 * {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
@@ -64,11 +64,19 @@ header {
     margin-left: 30px;
     width: 50%;
     box-shadow: -5px 5px 10px grey;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 .weather-data h1 {
-    margin-top: 0;
+    margin: 0;
 }
-
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.weather-icon {
+    font-size: 150px;
+}
 footer {
     position: absolute;
     width: 100%;
